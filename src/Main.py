@@ -38,20 +38,20 @@ def main():
                 running = False
      # Create functions to be called here that initialize the desired image/window size from user choice of size.
         if size_choice == "1":
-            resolution = (540, 540)
-            screen = pygame.display.set_mode(resolution, pygame.RESIZABLE)
+            screen_size = (540, 540)
+            screen = pygame.display.set_mode(screen_size, pygame.RESIZABLE)
             screen.fill((0, 0, 0))
             #init_instagram_post()
             pygame.display.flip()
         elif size_choice == "2":
-            resolution = (540, 960)
-            screen = pygame.display.set_mode(resolution, pygame.RESIZABLE)
+            screen_size = (540, 960)
+            screen = pygame.display.set_mode(screen_size, pygame.RESIZABLE)
             screen.fill((0, 0, 0))
             #init_phone_size()
             pygame.display.flip()
         elif size_choice == "3":
-            resolution = (960, 540)
-            screen = pygame.display.set_mode(resolution, pygame.RESIZABLE)
+            screen_size = (960, 540)
+            screen = pygame.display.set_mode(screen_size, pygame.RESIZABLE)
             screen.fill((0, 0, 0))
             #init_webpage_size()
             pygame.display.flip()
