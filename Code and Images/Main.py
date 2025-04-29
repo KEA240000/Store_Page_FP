@@ -2,13 +2,13 @@ import pygame
 
 
 def init_instagram_post():
-
+    resolution = (1080, 1080)
 
 def init_phone_size():
-
+    resolution = (1080, 1920)
 
 def init_webpage_size():
-
+    resolution = (1920, 1080)
 
 def gradient_bg(screen_size):
     """Creates a gradient background, please reference README file to see how to choose colors!"""
