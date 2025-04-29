@@ -10,12 +10,22 @@ class Image3():
 
 def init_instagram_post():
     resolution = (1080, 1080)
+    pygame.display.set_mode(resolution)
+    screen.fill = pygame.Color('black')
+    pygame.display.flip()
+
 
 def init_phone_size():
     resolution = (1080, 1920)
+    pygame.display.set_mode(resolution)
+    screen.fill = pygame.Color('black')
+    pygame.display.flip()
 
 def init_webpage_size():
     resolution = (1920, 1080)
+    pygame.display.set_mode(resolution)
+    screen.fill = pygame.Color('black')
+    pygame.display.flip()
 
 def gradient_bg(screen_size):
     """Creates a gradient background, please reference README file to see how to choose colors!"""
