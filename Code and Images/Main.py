@@ -10,6 +10,8 @@ def init_phone_size():
 def init_webpage_size():
 
 
+def gradient_bg(screen_size):
+    """Creates a gradient background, please reference README file to see how to choose colors!"""
 
 def main():
     """Main function that calls functions that initilize the desired image/window size from user choice of 3 options.
