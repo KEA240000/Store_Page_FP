@@ -20,6 +20,12 @@ def main():
     pygame.init()
     pygame.display.set_caption("Shop Product Page")
     size_choice = input("Choose a size: Instagram = 1, Phone = 2, Webpage Size = 3: ")
+    running = True
+    while running:
+        #Event Loop
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
     # Create functions to be called here that initialize the desired image/window size from user choice of size.
     if size_choice == "1":
         def init_instagram_post():
