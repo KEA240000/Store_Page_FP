@@ -1,13 +1,34 @@
 import pygame
 
-#class Image1():
+class Image1():
+    def __init__(self, pos, size=(800, 100)):
+      self.rect = pygame.Rect(pos, size)
+      self.color = pygame.Color('white')
 
+    def update_surface(self):
+        surf = pygame.Surface((self.rect.width, self.rect.height))
+        surf.fill(self.color)
+        return surf
 
-#class Image2():
+class Image2():
+    def __init__(self, pos, size=(800, 100)):
+      self.rect = pygame.Rect(pos, size)
+      self.color = pygame.Color('white')
 
+    def update_surface(self):
+        surf = pygame.Surface((self.rect.width, self.rect.height))
+        surf.fill(self.color)
+        return surf
 
-#class Image3():
+class Image3():
+    def __init__(self, pos, size=(800, 100)):
+      self.rect = pygame.Rect(pos, size)
+      self.color = pygame.Color('white')
 
+    def update_surface(self):
+        surf = pygame.Surface((self.rect.width, self.rect.height))
+        surf.fill(self.color)
+        return surf
 #def init_instagram_post():
     
     
