@@ -1,5 +1,12 @@
 import pygame
 
+class Image1():
+
+
+class Image2():
+
+
+class Image3():
 
 def init_instagram_post():
     resolution = (1080, 1080)
