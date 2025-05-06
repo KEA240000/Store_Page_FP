@@ -68,6 +68,10 @@ def main():
     pygame.display.set_caption("Shop Product Page")
     size_choice = input("Choose a size: Instagram = 1, Phone = 2, Webpage Size = 3: ")
     running = True
+    #THESE VARIABLES SET YOUR GRADIENT COLORS
+    color1 = (0, 0, 0)
+    color2 = (52, 28, 105)
+
     
     while running:
         #Event Loop
@@ -78,18 +82,18 @@ def main():
         if size_choice == "1":
             screen = init_instagram_post()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
-            gradient_bg(screen, (0, 0, 0), (52, 28, 105), screen.get_rect())
+            gradient_bg(screen, color1, color2, screen.get_rect())
             pygame.display.flip()
         elif size_choice == "2":
             screen = init_phone_size()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
-            gradient_bg(screen, (0, 0, 0), (52, 28, 105), screen.get_rect())
+            gradient_bg(screen, color1, color2, screen.get_rect())
             #init_phone_size()
             pygame.display.flip()
         elif size_choice == "3":
             screen = init_webpage_size()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
-            gradient_bg(screen, (0, 0, 0), (52, 28, 105), screen.get_rect())
+            gradient_bg(screen, color1, color2, screen.get_rect())
             #init_webpage_size()
             pygame.display.flip()
         else:
