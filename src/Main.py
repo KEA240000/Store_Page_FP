@@ -1,7 +1,7 @@
 import pygame
 
 class Image1():
-    def __init__(self, pos, size=(800, 100)):
+    def __init__(self, pos =(0,0), size=(100, 100)):
       self.rect = pygame.Rect(pos, size)
       self.color = pygame.Color('white')
 
@@ -9,9 +9,12 @@ class Image1():
         surf = pygame.Surface((self.rect.width, self.rect.height))
         surf.fill(self.color)
         return surf
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, self.rect, 50)  
+        
 
 class Image2():
-    def __init__(self, pos, size=(800, 100)):
+    def __init__(self, pos =(100,100), size=(100, 100)):
       self.rect = pygame.Rect(pos, size)
       self.color = pygame.Color('white')
 
@@ -19,9 +22,13 @@ class Image2():
         surf = pygame.Surface((self.rect.width, self.rect.height))
         surf.fill(self.color)
         return surf
+    def draw(self, screen):
+        surf = self.update_surface()
+        screen.blit(surf, self.rect.topleft)
+        pygame.draw.rect(screen, self.color, self.rect, 2)
 
 class Image3():
-    def __init__(self, pos, size=(800, 100)):
+    def __init__(self, pos =(200,200), size=(100, 100)):
       self.rect = pygame.Rect(pos, size)
       self.color = pygame.Color('white')
 
@@ -29,7 +36,11 @@ class Image3():
         surf = pygame.Surface((self.rect.width, self.rect.height))
         surf.fill(self.color)
         return surf
-    
+    def draw(self, screen):
+        surf = self.update_surface()
+        screen.blit(surf, self.rect.topleft)
+        pygame.draw.rect(screen, self.color, self.rect, 2)
+
 def init_instagram_post():
     screen_size = (540, 540)
     screen = pygame.display.set_mode(screen_size)
@@ -83,18 +94,25 @@ def main():
             screen = init_instagram_post()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, color1, color2, screen.get_rect())
+            Image1.draw(screen)
+            Image2.draw(screen)
+            Image3.draw(screen)
             pygame.display.flip()
         elif size_choice == "2":
             screen = init_phone_size()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, color1, color2, screen.get_rect())
-            #init_phone_size()
+            Image1.draw(screen)
+            Image2.draw(screen)
+            Image3.draw(screen)
             pygame.display.flip()
         elif size_choice == "3":
             screen = init_webpage_size()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, color1, color2, screen.get_rect())
-            #init_webpage_size()
+            Image1.draw(screen)
+            Image2.draw(screen)
+            Image3.draw(screen)
             pygame.display.flip()
         else:
             print("Please choose a valid option! Number input between 1-3 only.")
