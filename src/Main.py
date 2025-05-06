@@ -29,17 +29,27 @@ class Image3():
         surf = pygame.Surface((self.rect.width, self.rect.height))
         surf.fill(self.color)
         return surf
-#def init_instagram_post():
     
+def init_instagram_post():
+    screen_size = (540, 540)
+    screen = pygame.display.set_mode(screen_size)
+    screen.fill((0, 0, 0))
+    return screen
     
 
 
-#def init_phone_size():
-    
+def init_phone_size():
+    screen_size = (540, 960)
+    screen = pygame.display.set_mode(screen_size)
+    screen.fill((0, 0, 0))
+    return screen
     
 
-#def init_webpage_size():
-    
+def init_webpage_size():
+    screen_size = (960, 540)
+    screen = pygame.display.set_mode(screen_size)
+    screen.fill((0, 0, 0))
+    return screen
     
 def gradient_bg(screen, color1, color2, target):
     color_rect = pygame.Surface((2, 2))
@@ -66,30 +76,20 @@ def main():
                 running = False
      # Create functions to be called here that initialize the desired image/window size from user choice of size.
         if size_choice == "1":
-            screen_size = (540, 540)
-            screen = pygame.display.set_mode(screen_size)
-            screen.fill((0, 0, 0))
+            screen = init_instagram_post()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, (0, 0, 0), (52, 28, 105), screen.get_rect())
-            gradient_bg(screen, (52, 28, 105), (0, 0, 0), screen.get_rect())
-            #init_instagram_post()
             pygame.display.flip()
         elif size_choice == "2":
-            screen_size = (540, 960)
-            screen = pygame.display.set_mode(screen_size)
-            screen.fill((0, 0, 0))
+            screen = init_phone_size()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, (0, 0, 0), (52, 28, 105), screen.get_rect())
-            gradient_bg(screen, (52, 28, 105), (0, 0, 0), screen.get_rect())
             #init_phone_size()
             pygame.display.flip()
         elif size_choice == "3":
-            screen_size = (960, 540)
-            screen = pygame.display.set_mode(screen_size)
-            screen.fill((0, 0, 0))
+            screen = init_webpage_size()
             #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, (0, 0, 0), (52, 28, 105), screen.get_rect())
-            gradient_bg(screen, (52, 28, 105), (0, 0, 0), screen.get_rect())
             #init_webpage_size()
             pygame.display.flip()
         else:
