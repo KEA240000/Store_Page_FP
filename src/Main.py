@@ -68,11 +68,11 @@ def main():
     pygame.display.set_caption("Shop Product Page")
     size_choice = input("Choose a size: Instagram = 1, Phone = 2, Webpage Size = 3: ")
     running = True
-    #THESE VARIABLES SET YOUR GRADIENT COLORS
+    #THESE VARIABLES SET YOUR GRADIENT COLORS (Note: replace with proper background image later...)
     color1 = (0, 0, 0)
     color2 = (52, 28, 105)
 
-    
+
     while running:
         #Event Loop
         for event in pygame.event.get():
