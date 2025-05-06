@@ -18,7 +18,7 @@ def init_webpage_size():
     screen = pygame.display.set_mode(screen_size)
     return screen
 
-class Image1():
+class Logo():
     def __init__(self, pos):
         self.pos = pos
         self.width = 50
@@ -41,17 +41,36 @@ class Image1():
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
         surface.blit(image, self.pos)
-        
-class Image2():
-    def __init__(self, pos, screen):
+
+class Image1():
+    def __init__(self, pos):
         self.pos = pos
         self.width = 50
         self.height = 50
-        self.color = (255, 0, 0)
-        self.surface = self.update_surface()
+        self.color = pygame.Color('white')
+        self.rect = pygame.Rect(self.pos, (self.width, self.height))
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
-        screen.blit(image, pos)
+        self.surface = self.update_surface()
+        self.alpha = 255
+        
+    def update_surface(self):
+        surf = pygame.Surface((self.width, self.height))
+        surf.fill(self.color)
+        return surf
+    
+        
+class Image2():
+    def __init__(self, pos):
+        self.pos = pos
+        self.width = 50
+        self.height = 50
+        self.color = pygame.Color('white')
+        self.rect = pygame.Rect(self.pos, (self.width, self.height))
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        self.surface = self.update_surface()
+        self.alpha = 255
         
     def update_surface(self):
         surf = pygame.Surface((self.width, self.height))
@@ -59,15 +78,16 @@ class Image2():
         return surf
 
 class Image3():
-    def __init__(self, pos, screen):
+    def __init__(self, pos):
         self.pos = pos
         self.width = 50
         self.height = 50
-        self.color = (255, 0, 0)
-        self.surface = self.update_surface()
+        self.color = pygame.Color('white')
+        self.rect = pygame.Rect(self.pos, (self.width, self.height))
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
-        screen.blit(image, pos)
+        self.surface = self.update_surface()
+        self.alpha = 255
         
     def update_surface(self):
         surf = pygame.Surface((self.width, self.height))
@@ -107,9 +127,10 @@ def main():
         if size_choice == "1":
             screen = init_instagram_post()
             gradient_bg(screen, color1, color2, screen.get_rect())
-            Image1((0, 0), screen)   
-            Image2((100, 0), screen)
-            Image3((200, 0), screen)
+            Logo((0, 0)).draw(screen)
+            Image1((0, 100))   
+            Image2((100, 100))
+            Image3((200, 100))
         elif size_choice == "2":
             screen = init_phone_size()
             gradient_bg(screen, color1, color2, screen.get_rect())
