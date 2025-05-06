@@ -1,16 +1,16 @@
 import pygame
 
 class Image1():
+    # Opens the placeholder image and sets the size and position.
     def __init__(self, pos =(0,0), size=(100, 100)):
-      self.rect = pygame.Rect(pos, size)
-      self.color = pygame.Color('white')
-
-    def update_surface(self):
-        surf = pygame.Surface((self.rect.width, self.rect.height))
-        surf.fill(self.color)
-        return surf
-    def draw(self, screen):
-        pygame.draw.rect(screen, self.color, self.rect, 50)  
+        self.rect = pygame.Rect(pos, size)
+        self.image = self.load_image()
+        self.color = pygame.Color('white')
+    def load_image(self):
+        self.image = pygame.image.load("src/placeholder.png")
+        self.image = pygame.transform.scale(self.image, (self.rect.width, self.rect.height))
+        return self.image
+    
         
 
 class Image2():
