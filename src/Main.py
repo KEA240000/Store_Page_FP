@@ -1,5 +1,8 @@
 import pygame
 
+pygame.font.init()
+FONT = pygame.font.SysFont('Courier New', 40)
+
 def init_instagram_post():
     screen_size = (540, 540)
     screen = pygame.display.set_mode(screen_size)
@@ -93,6 +96,28 @@ class Image3():
         surf = pygame.Surface((self.width, self.height))
         surf.fill(self.color)
         return surf
+    
+class Textbox():
+    def __init__(self, pos=(100, 800), size=(800, 100), text=""):
+        self.rect = pygame.Rect(pos, size)
+        self.text = text
+        self.color = pygame.Color('black')
+        self.txt_surface = FONT.render(text, True, pygame.Color('white'))  
+
+    def update(self):
+        #resize text box in case diaglogue is too large.
+        width = max(self.txt_surface.get_width()+10)
+        self.rect.width = width
+    
+    def update_surface(self):
+        surf = pygame.Surface((self.rect.width, self.rect.height))
+        surf.fill(self.color)
+        return surf
+
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.color, self.rect, 50)  
+        pygame.draw.rect(screen, 'white', self.rect, 5)  
+        screen.blit(self.txt_surface, (self.rect.x + 20, self.rect.y + 30))
 
 def gradient_bg(screen, color1, color2, target):
     color_rect = pygame.Surface((2, 2))
