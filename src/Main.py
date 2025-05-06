@@ -152,6 +152,7 @@ def main():
      # Create functions to be called here that initialize the desired image/window size from user choice of size.
         if size_choice == "1":
             screen = init_instagram_post()
+            screen.fill((0, 0, 0))
             gradient_bg(screen, color1, color2, screen.get_rect())
             Textbox.draw((0,0), screen)
             Logo((0, 100)).draw(screen)
@@ -160,12 +161,14 @@ def main():
             Image3((200, 300))
         elif size_choice == "2":
             screen = init_phone_size()
+            screen.fill((0, 0, 0))
             gradient_bg(screen, color1, color2, screen.get_rect())
             Image1((0, 0), screen)   
             Image2((0, 100), screen)
             Image3((0, 200), screen)
         elif size_choice == "3":
             screen = init_webpage_size()
+            screen.fill((0, 0, 0))
             gradient_bg(screen, color1, color2, screen.get_rect())
             Image1((0, 0), screen)   
             Image2((0, 100), screen)
