@@ -98,7 +98,8 @@ class Image3():
         return surf
     
 class Textbox():
-    def __init__(self, pos=(100, 800), size=(800, 100), text=""):
+    # CHANGE TEXT PARAMETER IN __init__() TO SHOP NAME
+    def __init__(self, pos, size=(800, 100), text="SHOP NAME"):
         self.rect = pygame.Rect(pos, size)
         self.text = text
         self.color = pygame.Color('black')
@@ -152,10 +153,11 @@ def main():
         if size_choice == "1":
             screen = init_instagram_post()
             gradient_bg(screen, color1, color2, screen.get_rect())
-            Logo((0, 0)).draw(screen)
-            Image1((0, 100))   
-            Image2((100, 100))
-            Image3((200, 100))
+            Textbox.draw((0,0), screen)
+            Logo((0, 100)).draw(screen)
+            Image1((0, 300))   
+            Image2((100, 300))
+            Image3((200, 300))
         elif size_choice == "2":
             screen = init_phone_size()
             gradient_bg(screen, color1, color2, screen.get_rect())
