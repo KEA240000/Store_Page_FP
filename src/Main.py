@@ -4,7 +4,6 @@ def image_1(pos, screen):
     image = pygame.image.load("ApplePlaceholder.png")
     image = pygame.transform.scale(image, (screen.get_width(), screen.get_height()))
     screen.blit(image, pos)
-    pygame.display.update()
     
 
     
@@ -79,28 +78,24 @@ def main():
      # Create functions to be called here that initialize the desired image/window size from user choice of size.
         if size_choice == "1":
             screen = init_instagram_post()
-            #THIS CODE HERE DETERMINES GRADIENT COLORS
-            #gradient_bg(screen, color1, color2, screen.get_rect())
-            image_1((0, 0), screen)
-            pygame.display.flip()
+            gradient_bg(screen, color1, color2, screen.get_rect())
+            image_1((0, 0), screen)   
         elif size_choice == "2":
             screen = init_phone_size()
-            #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, color1, color2, screen.get_rect())
             Image1((0, 0))
             Image2((100, 100))
             Image3((200, 200))
-            pygame.display.flip()
         elif size_choice == "3":
             screen = init_webpage_size()
-            #THIS CODE HERE DETERMINES GRADIENT COLORS
             gradient_bg(screen, color1, color2, screen.get_rect())
             Image1((0, 0))
             Image2((100, 100))
             Image3((200, 200))
-            pygame.display.flip()
+            
         else:
             print("Please choose a valid option! Number input between 1-3 only.")
+        pygame.display.flip()
     pygame.quit()
 
 
