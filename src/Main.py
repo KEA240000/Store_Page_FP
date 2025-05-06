@@ -19,6 +19,30 @@ def init_webpage_size():
     return screen
 
 class Image1():
+    def __init__(self, pos):
+        self.pos = pos
+        self.width = 50
+        self.height = 50
+        self.color = pygame.Color('white')
+        self.rect = pygame.Rect(self.pos, (self.width, self.height))
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        self.surface = self.update_surface()
+        self.alpha = 255
+        
+    def update_surface(self):
+        surf = pygame.Surface((self.width, self.height))
+        surf.fill(self.color)
+        return surf
+    
+    def draw(self, surface):
+        self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        surface.blit(image, self.pos)
+        
+class Image2():
     def __init__(self, pos, screen):
         self.pos = pos
         self.width = 50
@@ -33,20 +57,22 @@ class Image1():
         surf = pygame.Surface((self.width, self.height))
         surf.fill(self.color)
         return surf
-    
-class Image2():
-    def image_2(pos, screen):
-        image = pygame.image.load("ApplePlaceholder.png")
-        image = pygame.transform.scale(image, (50,50))
-        screen.blit(image, pos)
-        pygame.display.update()
 
 class Image3():
-    def image_3(pos, screen):
+    def __init__(self, pos, screen):
+        self.pos = pos
+        self.width = 50
+        self.height = 50
+        self.color = (255, 0, 0)
+        self.surface = self.update_surface()
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
         screen.blit(image, pos)
-        pygame.display.update()
+        
+    def update_surface(self):
+        surf = pygame.Surface((self.width, self.height))
+        surf.fill(self.color)
+        return surf
 
 def gradient_bg(screen, color1, color2, target):
     color_rect = pygame.Surface((2, 2))
@@ -81,19 +107,21 @@ def main():
         if size_choice == "1":
             screen = init_instagram_post()
             gradient_bg(screen, color1, color2, screen.get_rect())
-            Image1((0,0), screen)
+            Image1((0, 0), screen)   
+            Image2((100, 0), screen)
+            Image3((200, 0), screen)
         elif size_choice == "2":
             screen = init_phone_size()
             gradient_bg(screen, color1, color2, screen.get_rect())
-            image_1((0, 0), screen)   
-            image_2((100, 100), screen)
-            image_3((200, 200), screen)
+            Image1((0, 0), screen)   
+            Image2((0, 100), screen)
+            Image3((0, 200), screen)
         elif size_choice == "3":
             screen = init_webpage_size()
             gradient_bg(screen, color1, color2, screen.get_rect())
-            image_1((0, 0), screen)   
-            image_2((100, 100), screen)
-            image_3((200, 200), screen)
+            Image1((0, 0), screen)   
+            Image2((0, 100), screen)
+            Image3((0, 200), screen)
             
         else:
             print("Please choose a valid option! Number input between 1-3 only.")
