@@ -99,7 +99,7 @@ class Image3():
     
 class Textbox():
     # CHANGE TEXT PARAMETER IN __init__() TO SHOP NAME
-    def __init__(self, pos, size=(800, 100), text="SHOP NAME"):
+    def __init__(self, pos =(0,0), size=(800, 100), text="SHOP NAME"):
         self.rect = pygame.Rect(pos, size)
         self.text = text
         self.color = pygame.Color('black')
@@ -149,12 +149,12 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
         
-     # Create functions to be called here that initialize the desired image/window size from user choice of size.
+     # Functions set screen size based on input choice and format layout.
         if size_choice == "1":
             screen = init_instagram_post()
             screen.fill((0, 0, 0))
             gradient_bg(screen, color1, color2, screen.get_rect())
-            Textbox.draw((0,0), screen)
+            Textbox.draw(screen)
             Logo((0, 100)).draw(screen)
             Image1((0, 300))   
             Image2((100, 300))
