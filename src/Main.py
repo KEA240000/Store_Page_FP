@@ -27,7 +27,7 @@ class Logo():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, (50,50))
         self.surface = self.update_surface()
         self.alpha = 255
