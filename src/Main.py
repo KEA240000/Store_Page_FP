@@ -28,7 +28,7 @@ class Logo():
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("ShopSticker.png")
-        image = pygame.transform.scale(image, (50,50))
+        image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
         self.alpha = 255
         
@@ -50,8 +50,8 @@ class Image1():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
-        image = pygame.transform.scale(image, (50,50))
+        image = pygame.image.load("ShopSticker.png")
+        image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
         self.alpha = 255
         
@@ -75,8 +75,8 @@ class Image2():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
-        image = pygame.transform.scale(image, (50,50))
+        image = pygame.image.load("ShopSticker.png")
+        image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
         self.alpha = 255
         
@@ -99,8 +99,8 @@ class Image3():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
-        image = pygame.transform.scale(image, (50,50))
+        image = pygame.image.load("ShopSticker.png")
+        image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
         self.alpha = 255
         
@@ -158,7 +158,7 @@ def main():
         # instantiate screen, textbox, and logo
         screen = init_instagram_post()
         textbox = Textbox((20, 0), (500, 100)) 
-        logo = Logo((50, 50), (0, 100)) 
+        logo = Logo((100, 100), (0, 100)) 
         image1 = Image1((50, 50),(0, 300))
         image2 = Image2((50, 50),(100, 300))
         image3 = Image3((50, 50),(200, 300)) 
