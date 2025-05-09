@@ -112,7 +112,7 @@ class Image3():
     def draw(self, surface):
         self.surface.set_alpha(self.alpha)
         surface.blit(self.surface, self.pos)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
 
