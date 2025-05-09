@@ -22,19 +22,18 @@ def init_webpage_size():
     return screen
 
 class Logo():
-    def __init__(self, pos):
+    def __init__(self, size, pos):
         self.pos = pos
-        self.width = 50
-        self.height = 50
+        self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, (self.width, self.height))
+        self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
         self.surface = self.update_surface()
         self.alpha = 255
         
     def update_surface(self):
-        surf = pygame.Surface((self.width, self.height))
+        surf = pygame.Surface((self.size))
         surf.fill(self.color)
         return surf
     
@@ -46,60 +45,81 @@ class Logo():
         surface.blit(image, self.pos)
 
 class Image1():
-    def __init__(self, pos):
+    def __init__(self, size, pos):
         self.pos = pos
-        self.width = 50
-        self.height = 50
+        self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, (self.width, self.height))
+        self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
         self.surface = self.update_surface()
         self.alpha = 255
         
     def update_surface(self):
-        surf = pygame.Surface((self.width, self.height))
+        surf = pygame.Surface((self.size))
         surf.fill(self.color)
         return surf
+    
+    def draw(self, surface):
+        self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        surface.blit(image, self.pos)
+
     
         
 class Image2():
-    def __init__(self, pos):
+    def __init__(self, size, pos):
         self.pos = pos
-        self.width = 50
-        self.height = 50
+        self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, (self.width, self.height))
+        self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("ApplePlaceholder.png")
         image = pygame.transform.scale(image, (50,50))
         self.surface = self.update_surface()
         self.alpha = 255
         
     def update_surface(self):
-        surf = pygame.Surface((self.width, self.height))
-        surf.fill(self.color)
-        return surf
-
-class Image3():
-    def __init__(self, pos):
-        self.pos = pos
-        self.width = 50
-        self.height = 50
-        self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, (self.width, self.height))
-        image = pygame.image.load("ApplePlaceholder.png")
-        image = pygame.transform.scale(image, (50,50))
-        self.surface = self.update_surface()
-        self.alpha = 255
-        
-    def update_surface(self):
-        surf = pygame.Surface((self.width, self.height))
+        surf = pygame.Surface((self.size))
         surf.fill(self.color)
         return surf
     
+    def draw(self, surface):
+        self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        surface.blit(image, self.pos)
+
+
+class Image3():
+    def __init__(self, size, pos):
+        self.pos = pos
+        self.size = size
+        self.color = pygame.Color('white')
+        self.rect = pygame.Rect(self.pos, self.size)
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        self.surface = self.update_surface()
+        self.alpha = 255
+        
+    def update_surface(self):
+        surf = pygame.Surface((self.size))
+        surf.fill(self.color)
+        return surf
+    
+    def draw(self, surface):
+        self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
+        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.transform.scale(image, (50,50))
+        surface.blit(image, self.pos)
+
+    
 class Textbox():
     # CHANGE TEXT PARAMETER IN __init__() TO SHOP NAME
-    def __init__(self, pos =(0,0), size=(800, 100), text="SHOP NAME"):
+    def __init__(self, pos, size, text="SHOP NAME"):
         self.rect = pygame.Rect(pos, size)
         self.text = text
         self.color = pygame.Color('black')
@@ -120,13 +140,8 @@ class Textbox():
         pygame.draw.rect(screen, 'white', self.rect, 5)  
         screen.blit(self.txt_surface, (self.rect.x + 20, self.rect.y + 30))
 
-def gradient_bg(screen, color1, color2, target):
-    color_rect = pygame.Surface((2, 2))
-    pygame.draw.line(color_rect, color1, (0, 0), (0, 1))
-    pygame.draw.line(color_rect, color2, (0, 1), (1, 1))
-    color_rect = pygame.transform.smoothscale(color_rect, (target.width, target.height))
-    screen.blit(color_rect, target)
-    pygame.display.update(target)
+#class BackgroundImage():
+    
 
 
 
@@ -135,49 +150,54 @@ def main():
        Standard Instagram Post, Standard Phone size, and Standard Webpage."""
     pygame.init()
     pygame.display.set_caption("Shop Product Page")
-    size_choice = input("Choose a size: Instagram = 1, Phone = 2, Webpage Size = 3: ")
-    running = True
-    clock = pygame.time.Clock()
-    #THESE VARIABLES SET YOUR GRADIENT COLORS (Note: replace with proper background image later...)
-    color1 = (0, 0, 0)
-    color2 = (52, 28, 105)
 
+    screen = None
+    size_choice = input("Choose a size: Instagram = 1, Phone = 2, Webpage Size = 3: ")
+    #THESE VARIABLES ARE FOT GRADIENT BACKGROUND COLORS
+    if size_choice == "1":
+        # instantiate screen, textbox, and logo
+        screen = init_instagram_post()
+        textbox = Textbox((20, 0), (500, 100)) 
+        logo = Logo((50, 50), (0, 100)) 
+        image1 = Image1((50, 50),(0, 300))
+        image2 = Image2((50, 50),(100, 300))
+        image3 = Image3((50, 50),(200, 300)) 
+    elif size_choice == "2":
+        screen = init_phone_size()
+        textbox = Textbox((20, 0))
+        logo = Logo((0, 100)) 
+        image1 = Image1((0, 100))
+        image2 = Image2((0, 200))
+        image3 = Image3((0, 300))
+    elif size_choice == "3":
+        screen = init_webpage_size()
+        textbox = Textbox()
+        logo = Logo((0, 0)) 
+        image1 = Image1((0, 100))
+        image2 = Image2((0, 200))
+        image3 = Image3((0, 300))
+    else:
+        print("Please choose a valid option! Number input between 1-3 only.")
+        pygame.quit()
+        return
+
+    running = True
 
     while running:
-        #Event Loop
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+        # call the draw method of the instances of screen, textbox, and logo
+        screen.fill((0, 0, 0)) 
         
-     # Functions set screen size based on input choice and format layout.
-        if size_choice == "1":
-            screen = init_instagram_post()
-            screen.fill((0, 0, 0))
-            gradient_bg(screen, color1, color2, screen.get_rect())
-            Textbox.draw(screen)
-            Logo((0, 100)).draw(screen)
-            Image1((0, 300))   
-            Image2((100, 300))
-            Image3((200, 300))
-        elif size_choice == "2":
-            screen = init_phone_size()
-            screen.fill((0, 0, 0))
-            gradient_bg(screen, color1, color2, screen.get_rect())
-            Image1((0, 0), screen)   
-            Image2((0, 100), screen)
-            Image3((0, 200), screen)
-        elif size_choice == "3":
-            screen = init_webpage_size()
-            screen.fill((0, 0, 0))
-            gradient_bg(screen, color1, color2, screen.get_rect())
-            Image1((0, 0), screen)   
-            Image2((0, 100), screen)
-            Image3((0, 200), screen)
-            
-        else:
-            print("Please choose a valid option! Number input between 1-3 only.")
+        textbox.draw(screen)
+        logo.draw(screen)
+        image1.draw(screen)
+        image2.draw(screen)
+        image3.draw(screen)
+        # update the display for this frame
         pygame.display.flip()
-        clock.tick(12)
+
     pygame.quit()
 
 
