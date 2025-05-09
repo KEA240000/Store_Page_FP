@@ -26,7 +26,7 @@ class Logo():
         self.pos = pos
         self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, self.size)
+        self.rect = pygame.Rect(self.pos, (self.size+10))
         image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
@@ -49,7 +49,7 @@ class Image1():
         self.pos = pos
         self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, self.size)
+        self.rect = pygame.Rect(self.pos, (self.size+10))
         image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
@@ -74,7 +74,7 @@ class Image2():
         self.pos = pos
         self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, self.size)
+        self.rect = pygame.Rect(self.pos, (self.size+10))
         image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
@@ -98,7 +98,7 @@ class Image3():
         self.pos = pos
         self.size = size
         self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, self.size)
+        self.rect = pygame.Rect(self.pos, (self.size+10))
         image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, size)
         self.surface = self.update_surface()
