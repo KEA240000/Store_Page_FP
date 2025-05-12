@@ -249,6 +249,7 @@ def main():
         price3.draw(screen)
         # update the display for this frame
         pygame.display.flip()
+        pygame.image.save(screen, "shop_product_page.png")
 
         clock.tick(6)
 
