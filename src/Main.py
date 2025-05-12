@@ -25,7 +25,6 @@ class Logo():
     def __init__(self, size, pos):
         self.pos = pos
         self.size = size
-        self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, self.size)
@@ -34,7 +33,6 @@ class Logo():
         
     def update_surface(self):
         surf = pygame.Surface((self.size))
-        surf.fill(self.color)
         return surf
     
     def draw(self, surface):
