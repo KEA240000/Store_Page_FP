@@ -139,14 +139,17 @@ class ShopNameTextbox():
         screen.blit(self.text, self.text_rect)
 
 class PriceTextbox():
-    # CHANGE TEXT PARAMETER IN __init__() TO SHOP NAME
-    def __init__(self, size, pos, input_text):
-        FONT = pygame.font.SysFont('Courier New', 10)
+    def __init__(self, size, pos, text):
+        FONT = pygame.font.SysFont('Courier New', 20)
         self.rect = pygame.Rect(pos, size)
-        self.text = input_text
+        self.text = text
         self.color = pygame.Color('black')
-        self.text = FONT.render(self.text, True, pygame.Color('white')) 
-        self.text_rect = self.text.get_rect(center=(self.rect.width // 1.5, self.rect.height // 1.5)) 
+        self.txt_surface = FONT.render(text, True, pygame.Color('white'))  
+
+    def update(self):
+        #resize text box in case diaglogue is too large.
+        width = max(self.txt_surface.get_width()-10)
+        self.rect.width = width
     
     def update_surface(self):
         surf = pygame.Surface((self.rect.width, self.rect.height))
@@ -155,8 +158,8 @@ class PriceTextbox():
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect, 50)  
-        pygame.draw.rect(screen, 'white', self.rect, 3)  
-        screen.blit(self.text, self.text_rect)
+        pygame.draw.rect(screen, 'white', self.rect, 5)  
+        screen.blit(self.txt_surface, (self.rect.x + 10, self.rect.y + 15))
 #class BackgroundImage():
     
 
