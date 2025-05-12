@@ -22,24 +22,13 @@ def init_webpage_size():
     return screen
 
 class Logo():
-    def __init__(self, size, pos):
+   def __init__(self, size, pos):
         self.pos = pos
         self.size = size
-        self.color = pygame.Color('white')
-        self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("shoplogo.png")
         image = pygame.transform.scale(image, self.size)
-        self.surface = self.update_surface()
-        self.alpha = 255
-        
-    def update_surface(self):
-        surf = pygame.Surface((self.size))
-        surf.fill(self.color)
-        return surf
     
-    def draw(self, surface):
-        self.surface.set_alpha(self.alpha)
-        surface.blit(self.surface, self.pos)
+   def draw(self, surface):
         image = pygame.image.load("shoplogo.png")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
