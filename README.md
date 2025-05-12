@@ -1,6 +1,6 @@
 # Store_Page_FP
 ## Thanks for viewing my project!
-## Video Demonstration Link -
+## Video Demonstration Link - https://youtu.be/lyVPzx5INq0
 
 Welcome to my final project for ANGM 2502! I decided to do a store page that people can post to their instagram, tiktok, or website/blog! One of the most annoying things is opening up photoshop and fiddling around with images and texts, and rinsing and repeating for every advertisement you make so they look the exact same. My program simplifies that to only 2 things a user needs to do; replace the images to their own, and if they want, change the font in the code!
 
