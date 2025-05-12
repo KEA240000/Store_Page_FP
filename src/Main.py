@@ -160,7 +160,28 @@ class PriceTextbox():
         pygame.draw.rect(screen, self.color, self.rect, 50)  
         pygame.draw.rect(screen, 'white', self.rect, 5)  
         screen.blit(self.txt_surface, (self.rect.x + 10, self.rect.y + 15))
-#class BackgroundImage():
+
+class BackgroundImage():
+    def __init__(self, size, pos = (0,0)):
+        self.pos = pos
+        self.size = size
+        self.color = pygame.Color('white')
+        image = pygame.image.load("CoolBubbles.jpg")
+        image = pygame.transform.scale(image, self.size)
+        self.surface = self.update_surface()
+        self.alpha = 255
+        
+    def update_surface(self):
+        surf = pygame.Surface((self.size))
+        surf.fill(self.color)
+        return surf
+    
+    def draw(self, surface):
+        self.surface.set_alpha(self.alpha)
+        surface.blit(self.surface, self.pos)
+        image = pygame.image.load("CoolBubbles.jpg")
+        image = pygame.transform.scale(image, self.size)
+        surface.blit(image, self.pos)
     
 
 
@@ -177,10 +198,10 @@ def main():
     price2_input = input("Enter the price of the second product: ")
     price3_input = input("Enter the price of the third product: ")
     size_choice = input("Choose a size: Instagram = 1, Phone = 2, Webpage Size = 3: ")
-    #THESE VARIABLES ARE FOT GRADIENT BACKGROUND COLORS
     if size_choice == "1":
         # instantiate screen, textbox, and logo
         screen = init_instagram_post()
+        background = BackgroundImage((540, 540))
         textbox = ShopNameTextbox((500, 100), (20, 0), shop_name) 
         logo = Logo((100, 100), (225, 100)) 
         image1 = Image1((75, 75),(85, 250))
@@ -191,6 +212,7 @@ def main():
         price3 = PriceTextbox((75, 50), (385, 350), price3_input)
     elif size_choice == "2":
         screen = init_instagram_post()
+        background = BackgroundImage((540, 960))
         textbox = ShopNameTextbox((500, 100), (20, 0), shop_name) 
         logo = Logo((100, 100), (225, 100)) 
         image1 = Image1((75, 75),(85, 250))
@@ -201,6 +223,7 @@ def main():
         price3 = PriceTextbox((75, 50), (385, 350), price3_input)
     elif size_choice == "3":
         screen = init_webpage_size()
+        background = BackgroundImage((960, 540))
         textbox = Textbox()
         logo = Logo((0, 0)) 
         image1 = Image1((0, 100))
@@ -220,6 +243,7 @@ def main():
         # call the draw method of the instances of screen, textbox, and logo
         screen.fill('cadetblue1') 
         
+        background.draw(screen)
         textbox.draw(screen)
         logo.draw(screen)
         image1.draw(screen)
