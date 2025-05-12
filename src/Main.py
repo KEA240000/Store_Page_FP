@@ -120,17 +120,13 @@ class Image3():
 class ShopNameTextbox():
     # CHANGE TEXT PARAMETER IN __init__() TO SHOP NAME
     def __init__(self, size, pos, input_text):
-        FONT = pygame.font.SysFont('Courier New', 30)
+        FONT = pygame.font.SysFont('Courier New', 50)
         self.rect = pygame.Rect(pos, size)
         self.text = input_text
         self.color = pygame.Color('black')
         self.text = FONT.render(self.text, True, pygame.Color('white')) 
         self.text_rect = self.text.get_rect(center=(self.rect.width // 2, self.rect.height // 2)) 
 
-    def update(self):
-        #resize text box in case diaglogue is too large.
-        width = max(self.txt_surface.get_width() - 10)
-        self.rect.width = width
     
     def update_surface(self):
         surf = pygame.Surface((self.rect.width, self.rect.height))
@@ -150,12 +146,7 @@ class PriceTextbox():
         self.text = input_text
         self.color = pygame.Color('black')
         self.text = FONT.render(self.text, True, pygame.Color('white')) 
-        self.text_rect = self.text.get_rect(center=(self.rect.width // 2, self.rect.height // 2)) 
-
-    def update(self):
-        #resize text box in case diaglogue is too large.
-        width = max(self.txt_surface.get_width() - 10)
-        self.rect.width = width
+        self.text_rect = self.text.get_rect(center=(self.rect.width // 1.5, self.rect.height // 1.5)) 
     
     def update_surface(self):
         surf = pygame.Surface((self.rect.width, self.rect.height))
@@ -164,7 +155,7 @@ class PriceTextbox():
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect, 50)  
-        pygame.draw.rect(screen, 'white', self.rect, 5)  
+        pygame.draw.rect(screen, 'white', self.rect, 3)  
         screen.blit(self.text, self.text_rect)
 #class BackgroundImage():
     
@@ -176,7 +167,7 @@ def main():
        Standard Instagram Post, Standard Phone size, and Standard Webpage."""
     pygame.init()
     pygame.display.set_caption("Shop Product Page")
-
+    clock = pygame.time.Clock()
     screen = None
     shop_name = input("What's the name of your shop? ")
     price1_input = input("Enter the price of the first product: ")
@@ -224,7 +215,7 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
         # call the draw method of the instances of screen, textbox, and logo
-        screen.fill((0, 0, 0)) 
+        screen.fill('cadetblue1') 
         
         textbox.draw(screen)
         logo.draw(screen)
@@ -236,6 +227,8 @@ def main():
         price3.draw(screen)
         # update the display for this frame
         pygame.display.flip()
+
+        clock.tick(6)
 
     pygame.quit()
 
