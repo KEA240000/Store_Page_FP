@@ -128,7 +128,7 @@ class ShopNameTextbox():
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, self.rect, 50)  
         pygame.draw.rect(screen, 'white', self.rect, 5)  
-        screen.blit(self.txt_surface, (self.rect.x + 240, self.rect.y + 15))
+        screen.blit(self.txt_surface, (self.rect.x + 10, self.rect.y + 15))
 
 class PriceTextbox():
     def __init__(self, size, pos, text):
