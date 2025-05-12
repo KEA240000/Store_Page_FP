@@ -25,6 +25,7 @@ class Logo():
     def __init__(self, size, pos):
         self.pos = pos
         self.size = size
+        self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
         image = pygame.image.load("ShopSticker.png")
         image = pygame.transform.scale(image, self.size)
@@ -33,6 +34,7 @@ class Logo():
         
     def update_surface(self):
         surf = pygame.Surface((self.size))
+        surf.fill(self.color)
         return surf
     
     def draw(self, surface):
@@ -232,7 +234,7 @@ def main():
         image2 = Image2((100, 100),(425, 300))
         price2 = PriceTextbox((100, 50), (425, 450), price2_input)
         image3 = Image3((100, 100),(785, 300)) 
-        price3 = PriceTextbox((100, 50), (785, 450), price3_input)
+        price3 = PriceTextbox((100, 75), (785, 450), price3_input)
     else:
         print("Please choose a valid option! Number input between 1-3 only.")
         pygame.quit()
