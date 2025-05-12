@@ -27,7 +27,7 @@ class Logo():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ShopSticker.png")
+        image = pygame.image.load("shoplogo.png")
         image = pygame.transform.scale(image, self.size)
         self.surface = self.update_surface()
         self.alpha = 255
@@ -40,7 +40,7 @@ class Logo():
     def draw(self, surface):
         self.surface.set_alpha(self.alpha)
         surface.blit(self.surface, self.pos)
-        image = pygame.image.load("ShopSticker.png")
+        image = pygame.image.load("shoplogo.png")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
 
@@ -50,7 +50,7 @@ class Image1():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("Item1.png")
         image = pygame.transform.scale(image, self.size)
         self.surface = self.update_surface()
         self.alpha = 255
@@ -63,7 +63,7 @@ class Image1():
     def draw(self, surface):
         self.surface.set_alpha(self.alpha)
         surface.blit(self.surface, self.pos)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("Item1.png")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
 
@@ -75,7 +75,7 @@ class Image2():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("Item2.png")
         image = pygame.transform.scale(image, self.size)
         self.surface = self.update_surface()
         self.alpha = 255
@@ -88,7 +88,7 @@ class Image2():
     def draw(self, surface):
         self.surface.set_alpha(self.alpha)
         surface.blit(self.surface, self.pos)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("Item2.png")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
 
@@ -99,7 +99,7 @@ class Image3():
         self.size = size
         self.color = pygame.Color('white')
         self.rect = pygame.Rect(self.pos, self.size)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("Item3.png")
         image = pygame.transform.scale(image, self.size)
         self.surface = self.update_surface()
         self.alpha = 255
@@ -112,7 +112,7 @@ class Image3():
     def draw(self, surface):
         self.surface.set_alpha(self.alpha)
         surface.blit(self.surface, self.pos)
-        image = pygame.image.load("ApplePlaceholder.png")
+        image = pygame.image.load("Item3.png")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
 
@@ -169,7 +169,7 @@ class BackgroundImage():
         self.pos = pos
         self.size = size
         self.color = pygame.Color('white')
-        image = pygame.image.load("CoolBubbles.jpg")
+        image = pygame.image.load("background.jpg")
         image = pygame.transform.scale(image, self.size)
         self.surface = self.update_surface()
         self.alpha = 255
@@ -182,7 +182,7 @@ class BackgroundImage():
     def draw(self, surface):
         self.surface.set_alpha(self.alpha)
         surface.blit(self.surface, self.pos)
-        image = pygame.image.load("CoolBubbles.jpg")
+        image = pygame.image.load("background.jpg")
         image = pygame.transform.scale(image, self.size)
         surface.blit(image, self.pos)
     
